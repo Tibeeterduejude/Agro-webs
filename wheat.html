@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display of products</title>
+
+    <style>
+        body {
+            background: url('images/apple.png.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-style: italic;
+            text-align: center;
+            color: rgb(88, 91, 94);
+            background-color: rgb(29, 144, 134);
+            width: 200px;
+            height: 50px;
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 5px gray;
+            line-height: 50px;
+        }
+
+        /* MAIN FLEX CONTAINER */
+        .container {
+            display: flex;
+            justify-content: flex-end; /* move to right side */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* BOTH BOXES */
+        .box {
+            background: rgba(30, 105, 130, 0.926);
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px gray;
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>varieties</h1>
+
+<div class="container">
+
+    <!-- FIRST BOX -->
+    <div class="box">
+        <h3>long grain rice</h3>
+        <p>slende,long kernel</p>
+        <p>stays seperate when cooked</p>
+        <p>price: $3.00 per kg</p>
+    </div>
+
+    <!-- SECOND BOX -->
+    <div class="box">
+        <h3>short grain rice</h3>
+        <p>round,almost oval grain</p>
+        <p>very sticky when cooked</p>
+        <p>common variety is sushi rice</p>
+        <p>price: $2.50 per kg</p>
+    </div>
+
+    <div class="box">
+        <h3>middle grain rice</h3>
+        <p>shorter and wider kernel</p>
+        <p>slightly sticky when cooked</p>
+        <p>common variety are arborio and carnaroli</p>
+        <p>price: $2.50 per kg</p>
+    
+    </div>
+    
+
+</div>
+
+</body>
+</html>

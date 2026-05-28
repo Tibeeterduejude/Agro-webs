@@ -1,0 +1,598 @@
+# Modern Agro Marketplace UI Template
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FarmHub Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3ef;
+    color:#222;
+}
+
+/* NAVBAR */
+.navbar{
+    width:100%;
+    background:#14532d;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#9be15d;
+}
+
+.login-btn{
+    background:#6cc24a;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#247a8e;
+}
+
+/* HERO SECTION */
+.hero{
+    width:100%;
+    min-height:85vh;
+    background:#14532d;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px;
+    gap:40px;
+}
+
+.hero-text{
+    width:50%;
+    color:white;
+}
+
+.hero-text h1{
+    font-size:65px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:17px;
+    line-height:1.8;
+    margin-bottom:30px;
+    color:#d7e9d7;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.hero-buttons button{
+    padding:15px 28px;
+    border:none;
+    border-radius:40px;
+    font-size:15px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.read-btn{
+    background:#7ed957;
+    color:white;
+}
+
+.watch-btn{
+    background:white;
+    color:#14532d;
+}
+
+.hero-buttons button:hover{
+    transform:translateY(-3px);
+}
+
+.hero-image{
+    width:50%;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:40px;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* SERVICES */
+.services{
+    padding:80px 60px;
+    text-align:center;
+}
+
+.services h2{
+    font-size:48px;
+    color:#14532d;
+    margin-bottom:20px;
+}
+
+.services p{
+    color:#555;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#14532d;
+}
+
+.card p{
+    font-size:14px;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.buy-btn{
+    background:#14532d;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* DASHBOARD */
+.dashboard{
+    padding:80px 60px;
+}
+
+.dashboard-container{
+    background:white;
+    border-radius:30px;
+    padding:40px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.left-panel h2{
+    font-size:40px;
+    color:#14532d;
+    margin-bottom:30px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat-box{
+    background:#eef6ea;
+    padding:25px;
+    border-radius:20px;
+}
+
+.stat-box h3{
+    font-size:30px;
+    color:#14532d;
+}
+
+.map-box{
+    width:100%;
+    height:350px;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.map-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.right-panel{
+    background:#f8faf7;
+    border-radius:25px;
+    padding:30px;
+}
+
+.right-panel img{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.right-panel h2{
+    color:#14532d;
+    margin-bottom:15px;
+}
+
+.right-panel p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.plant-btn{
+    width:100%;
+    background:#14532d;
+    color:white;
+    border:none;
+    padding:16px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* REGISTRATION FORM */
+.register-section{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.register-box{
+    width:400px;
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.register-box h2{
+    margin-bottom:10px;
+}
+
+.register-box p{
+    margin-bottom:25px;
+    color:#666;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group input{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    outline:none;
+}
+
+.submit-btn{
+    width:100%;
+    background:#7ed957;
+    color:white;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+.google-btn{
+    width:100%;
+    background:white;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    padding:40px 20px;
+}
+
+.hero-text,
+.hero-image{
+    width:100%;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+    padding:20px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.dashboard-container{
+    grid-template-columns:1fr;
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">🌾 FarmHub</div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Products</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <button class="login-btn" onclick="showMessage()">
+        Login
+    </button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-text">
+        <h1>
+            Discover the future of smart farming
+        </h1>
+
+        <p>
+            Buy and sell agricultural products, monitor crops,
+            and manage your farming operations using modern technology.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="read-btn">
+                Explore More
+            </button>
+
+            <button class="watch-btn">
+                Watch Video
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=1200&auto=format&fit=crop" alt="Farmers">
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+
+    <h2>
+        Nourishing the world from seed to table
+    </h2>
+
+    <p>
+        Explore premium agricultural products from trusted farmers.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="images/apple.png.jpg">
+            <h3>apple</h3>
+            <p>Fresh and organic apple available for purchase.</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1200&auto=format&fit=crop">
+            <h3>beans</h3>
+            <p>Premium beans for healthy daily consumption.</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?q=80&w=1200&auto=format&fit=crop">
+            <h3>beef</h3>
+            <p>Nutritious beef for balanced feeding and export.</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+
+<div class="dashboard-container">
+
+    <div class="main-panel">
+
+        <h2>
+            Your Agricultural Assistant
+        </h2>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <p>Air Temperature</p>
+                <h3>24°C</h3>
+            </div>
+
+            <div class="stat-box">
+                <p>Soil Moisture</p>
+                <h3>72%</h3>
+            </div>
+
+            <div class="stat-box">
+                <p>Rainfall</p>
+                <h3>2mm</h3>
+            </div>
+
+        </div>
+
+        <div class="map-box">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop">
+        </div>
+
+    </div>
+
+    <div class="right-panel">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909762.png">
+
+        <h2>Wheat Analytics</h2>
+
+        <p>
+            Monitor crop growth, rainfall levels, productivity,
+            and harvest conditions using smart farming technology.
+        </p>
+
+        <button class="plant-btn">
+            Plant Now
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- REGISTRATION -->
+<section class="register-section">
+
+<form class="register-box" id="registerForm">
+
+    <h2>Create Your Account</h2>
+
+    <p>
+        Join our smart agriculture platform today.
+    </p>
+
+    <div class="input-group">
+        <input type="text" placeholder="Surname">
+    </div>
+
+    <div class="input-group">
+        <input type="text" placeholder="Other Names">
+    </div>
+
+    <div class="input-group">
+        <input type="email" placeholder="Email Address">
+    </div>
+
+    <button type="submit" class="submit-btn">
+    Register
+</button>
+
+    <button class="google-btn">
+        Continue with Google
+    </button>
+
+</form>
+
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>© 2026 FarmHub Agro Marketplace</p>
+</div>
+
+<script>
+
+function showMessage(){
+    alert("Google Login Integration Coming Soon");
+}
+
+</script>
+
+</body>
+</html>
+```
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agro Home</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #719fa0;
+            text-align: left;
+        }
+        .container {
+            margin-top: 10px;
+            font-style: italic;
+            padding: 10px;
+            background: rgba(113, 148, 212, 0.938);
+            width: 300px;
+            height: 180px;
+            width: 60%;
+            margin: 60px auto;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 10px 10px 10px gray;
+        }
+        .btn1 {
+            padding: 10px;
+            background: rgb(225, 129, 156);
+            color: rgb(255, 0, 255);
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+            
+        
+        .btn2 {
+            padding: 10px;
+            background: rgb(133, 128, 118);
+            color: rgb(55, 44, 131);
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+            
+
+
+
+
+
+            .product {
+                background: rgba(87, 82, 88, 0.926);
+                width: 300px; ;
+                height: 100px;
+                padding: 20px;
+                margin: 20px;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px gray;
+                font-style: oblique;
+            }
+            .product h3 {
+                margin-top: 0;
+            }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🌾 Agro Marketplace</h2>
+    <h2 id="welcome"></h2>
+
+    <p>Buy and sell farm products here.</p>
+
+    <button id="btn1" onclick="logout()">Logout</button>
+</div>
+    <div class="product">
+        <h3>maize</h3>
+        <p>Description: Fresh and organic maize available for purchase.</p>
+        <button class="btn2" onclick="window.location.href='maize.html'">Buy Now</button>
+
+    </div>
+    <div class="product">
+        <h3>wheat</h3>
+        <p>Description: High-quality wheat for baking and cooking.</p>
+        <button class="btn2" onclick="window.location.href='wheat.html'">Buy Now</button>
+
+    </div>
+    <div class="product">
+        <h3>rice</h3>
+        <p>Description: Premium rice for daily consumption.</p>
+        <button class="btn2" onclick="window.location.href='rice.html'">Buy Now</button>
+    </div>
+    <div class="product">
+        <h3>beans</h3>
+        <p>Description: Nutritious beans for a healthy diet.</p>
+        <button class="btn2" onclick="window.location.href='beans.html'">Buy Now</button>
+    </div>
+<script>
+    // ✅ PROTECT PAGE
+    let user = localStorage.getItem("loggedInUser");
+
+    if (!user) {
+        window.location.href = "index.html";
+    }
+
+    // ✅ SHOW USER
+    document.getElementById("welcome").innerText = "Welcome " + user;
+
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
